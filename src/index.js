@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors')
 
@@ -12,7 +13,7 @@ const {
 
 const app = express()
 app.use(cors())
-const port = 8080
+const PORT =  process.env.PORT || 8080
 
 
 app.use(express.json()) // Con esto podemos recibir un body
@@ -38,6 +39,6 @@ app.put('/products/:id', handleUpdateData)
 
 app.delete('/products/:id', handleDeleteData)
 
-app.listen(port, () => {
-  console.log(`Successfully running at http://localhost:${port}`)
+app.listen( PORT, () => {
+  console.log(`Successfully running at http://localhost:${PORT}`)
 })
